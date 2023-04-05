@@ -6,7 +6,9 @@ Topic transfer makes it possible to create annotated classification models from 
 * Topics can be annotated based on several features: the characteristic words and a list of 
 * Topic annotations can be transfered to a new corpus.
 
-This approach is especially useful in the following cases:
-*For very large corpus. Currently BERTopic takes a long time on corpus larger than 70,000 documents.
-*For continuous observation of new data.
-*For the reuse complex annotations that may require the interpretation of an expert analyst.
+## Use cases
+
+BERTransfer has been especially relevant for the following tasks:
+* Continuous observation of new data.
+* Very large corpus. With its default setting, BERTopic takes a long time on corpus larger than 70,000 documents
+* Reuse complex annotations that may require the interpretation of an expert analyst.
