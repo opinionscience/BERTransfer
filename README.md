@@ -19,6 +19,8 @@ BERTransfer has been used effectively in following tasks:
 
 ## Creation of topic models
 
+The easiest way to get acquainted with BERTransfer is to use the [code notebook](https://colab.research.google.com/drive/1JC-8STCDhahnPg3Mk47j1C5GhB37pD9Q?usp=sharing) in Jupyter/Colab. It includes a demo on two datasets of top tweets in English, on from October 2022 and the other from November 2022.
+
 This process is very close to the current workflow of BERTopic. BERTransfer only add a few additional functions to create annotated topic dataset.
 
 The *create_bertopic* function works like Bertopic() and uses nearly the same arguments. It takes in entry parallel lists of texts (*docs*) and unique text identifiers (*ids*):
