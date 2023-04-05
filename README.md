@@ -1,5 +1,5 @@
 # BERTransfer
-<img src="https://raw.githubusercontent.com/Pclanglais/BERTransfer/main/BERTransfer.png" style="float:right" alt="Bertransfer logo"  width="200"/>
+<img src="https://raw.githubusercontent.com/Pclanglais/BERTransfer/main/BERTransfer.png" style="float:right;" alt="Bertransfer logo"  width="200"/>
 
 BERTransfer is a text mining application that make it possible to apply topics defined for one corpus to another corpus.
 
