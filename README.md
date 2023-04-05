@@ -16,3 +16,16 @@ BERTransfer has been used effectively in following tasks:
 * Continuous observation of new data, such as an online conversation
 * Dealing with very large corpus. In its default setting, BERTopic takes a long time on corpus larger than 70,000 documents. Topic transfer is a possible solution: topics have been successfully applied for corpus of millions of documents.
 * Reuse complex annotations that may require the interpretation of an expert analyst.
+
+# Creation of topic models
+
+This process is very close to the current workflow of BERTopic. BERTransfer only add a few additional functions to create annotated topic dataset.
+
+The *create_bertopic* function works like Bertopic() and uses nearly the same arguments. It takes in entry parallel lists of texts (*docs*) and unique text identifiers (*ids*):
+
+```
+from BERTransfer import create_bertopic
+
+bertopic_model = create_bertopic(ids = ids, docs = docs, language = "english")
+```
+
