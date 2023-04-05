@@ -55,3 +55,42 @@ All these elements will be saved on the local directory using this command. The 
 bertopic_model.save_results(project_name = "twitter_2022_october")
 ```
 
+## Topic transfer
+
+Topic transfer is significantly quicker than topic modeling. The embeddings produced by sentence transformer will be used without the additional data processing of BERTopic. This makes BERTransfer a possible solution when dealing with very large corpora.
+
+*create_bertransfer* works similarly to *create_bertopic*. The most important different is that we also pass a set of topic embeddings.
+
+```python
+from BERTransfer import create_bertransfer
+bertransfer_model = create_bertransfer(ids, docs, topic_embeddings = topic_embeddings, language = "english", min_cosine_distance = 0.5)
+```
+
+So along with the ids and docs list of the new corpus it's necessary to open the topic embeddings of the previous corpus:
+
+```python
+import pickle
+a_file = open("topic_embeddings_file.pkl", "rb")
+topic_embeddings = pickle.load(a_file)
+```
+
+There's also a new indicators *min_cosine_distance* which is basically the threshold of proximity needed to associate a document to a topic. You can also think of it as a likelyhood of the document to belong to a topic. 0.5 is a fairly low requirement and to ensure better results you can pass a higher threshold: this would also result in having a larger share of the new database not being classified.
+
+*create_bertransfer* return a new object. The document dataset associates each document to its closer topic in the semantic space, with cosine distance acting as a metric of likelyhood.
+
+```python
+bertransfer_model.document_dataset
+```
+There is not topic dataset as it is the same as the previous one.
+
+It's also possible to reconcile the classification on this topic dataset to have interpretable names for topic with the document topic function.
+
+```python
+bertransfer_model.document_topic("topics_twitter_2022_october.tsv")
+```
+
+This function is also very practical when you have annotated topics based on the previous corpora: your annotations will appear as well.
+
+```python
+bertransfer_model.document_topic("topics_twitter_2022_october_documented.tsv").dropna()
+```
