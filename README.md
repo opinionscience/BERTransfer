@@ -96,3 +96,9 @@ This function is also very practical when you have annotated topics based on the
 ```python
 bertransfer_model.document_topic("topics_twitter_2022_october_documented.tsv").dropna()
 ```
+
+## A final word of warning: topic drift.
+
+BERTransfer aims to create fixed models of topics which can be useful and relevant in controlled workflow. Yet it comes with a downside: models can become gradually oudated or may not necessarily be fitted to new data. This process is commonly called "data drift" or, in this context, "topic drift".  For instance, emerging topics may not be noticed at all or that existing topics may be repurposed in an hazardous way to classify different issues.
+
+Future versions of BERTransfer will likely incorporate new techniques to mitigate the issue, for instance to highlight potential "missed" topics in the new corpus.
