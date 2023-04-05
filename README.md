@@ -3,7 +3,7 @@
 
 BERTransfer is a text mining application that make it possible to apply topics defined for one corpus to another corpus.
 
-BERTransfer is built on top of BERTopic and is part of the same ecosystem of BERT-based tools for text classification. BERTopic is a topic modeling technique that leverages 🤗 transformers and a custom class-based TF-IDF to create dense clusters allowing for easily interpretable topics whilst keeping important words in the topic descriptions. BERTransfer makes it possible to reuse topics defined by BERTopic on one corpus to further corpora. 
+BERTransfer is built on top of [BERTopic](https://github.com/MaartenGr/BERTopic) and is part of the same ecosystem of BERT-based tools for text classification. BERTopic is a topic modeling technique that leverages 🤗 transformers and a custom class-based TF-IDF to create dense clusters allowing for easily interpretable topics whilst keeping important words in the topic descriptions. BERTransfer makes it possible to reuse topics defined by BERTopic on one corpus to further corpora. 
 
 BERTransfer help create annotated classification models from BERTopic using the following workflow:
 * Topics are defined from an initial corpus.
