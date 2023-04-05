@@ -35,7 +35,7 @@ The datasets of topics that contain, for each topic, a list of characteristic wo
 
 ```python
 bertopic_model.topic_dataset
-``
+```
 
 The dataset of documents include for each document the most likely topic and their associated probability. Associating the document with more detailed metadata may also help to identify relevant trends for the annotation (for instance the exclusive association of a topic to a specific event in a corpus based on social network.
 
