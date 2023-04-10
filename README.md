@@ -8,7 +8,7 @@ BERTransfer is built on top of [BERTopic](https://github.com/MaartenGr/BERTopic)
 BERTransfer help create annotated classification models from BERTopic using the following workflow:
 * Topics are defined from an initial corpus.
 * Topics can be annotated based on several features: the characteristic words and a list of representative documents.
-* Topic annotations can be transfered to a new corpus.
+* Topic annotations can be transferred to a new corpus.
 
 ## Use cases
 
@@ -76,9 +76,9 @@ a_file = open("topic_embeddings_file.pkl", "rb")
 topic_embeddings = pickle.load(a_file)
 ```
 
-There's also a new indicators *min_cosine_distance* which is basically the threshold of proximity needed to associate a document to a topic. You can also think of it as a likelyhood of the document to belong to a topic. 0.5 is a fairly low requirement and to ensure better results you can pass a higher threshold: this would also result in having a larger share of the new database not being classified.
+There's also a new indicators *min_cosine_distance* which is basically the threshold of proximity needed to associate a document to a topic. You can also think of it as a likelihood of the document to belong to a topic. 0.5 is a fairly low requirement and to ensure better results you can pass a higher threshold: this would also result in having a larger share of the new database not being classified.
 
-*create_bertransfer* return a new object. The document dataset associates each document to its closer topic in the semantic space, with cosine distance acting as a metric of likelyhood.
+*create_bertransfer* return a new object. The document dataset associates each document to its closer topic in the semantic space, with cosine distance acting as a metric of likelihood.
 
 ```python
 bertransfer_model.document_dataset
