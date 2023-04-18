@@ -24,6 +24,8 @@ def create_bertransfer(ids, docs, topic_embeddings, language = "english", bert_m
   bertransfer_model = BERTransferM(ids = ids, embeddings = embeddings, topic_embeddings = topic_embeddings, min_cosine_distance = 0.5, max_documents_topics = 15000)
   return bertransfer_model
 
+#The function to load the topic embeddingsn as we store them with safe tensors.
+#For now we provide a conversion to numpy.
 def load_topic_embeddings(tensor_file):
   import torch
   from safetensors import safe_open
