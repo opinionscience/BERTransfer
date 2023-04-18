@@ -23,3 +23,12 @@ def create_bertransfer(ids, docs, topic_embeddings, language = "english", bert_m
   embeddings = sentence_model.encode(docs, show_progress_bar=True)
   bertransfer_model = BERTransferM(ids = ids, embeddings = embeddings, topic_embeddings = topic_embeddings, min_cosine_distance = 0.5, max_documents_topics = 15000)
   return bertransfer_model
+
+def load_topic_embeddings(tensor_file):
+  import torch
+  from safetensors import safe_open
+  from safetensors.torch import save_file
+  topic_embeddings = {}
+  with safe_open(tensor_file, framework="pt") as tensor_dict:
+    for key in tensor_dict.keys():
+      topic_embeddings[key] = tensor_dict.get_tensor(key).numpy()
