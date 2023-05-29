@@ -21,7 +21,7 @@ def create_bertransfer(ids, docs, topic_embeddings, language = "english", bert_m
 
   sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
   embeddings = sentence_model.encode(docs, show_progress_bar=True)
-  bertransfer_model = BERTransferM(ids = ids, embeddings = embeddings, topic_embeddings = topic_embeddings, min_cosine_distance = 0.5, max_documents_topics = 15000)
+  bertransfer_model = BERTransferM(ids = ids, embeddings = embeddings, topic_embeddings = topic_embeddings, min_cosine_distance = min_cosine_distance, max_documents_topics = 15000)
   return bertransfer_model
 
 #The function to load the topic embeddingsn as we store them with safe tensors.
