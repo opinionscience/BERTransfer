@@ -4,8 +4,11 @@ def create_bertopic(ids, docs, language = "english", calculate_probabilities=Tru
   from bertopic import BERTopic
   from sentence_transformers import SentenceTransformer
   from BERTransfer import BERTopicM
-
-  sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+  
+  if language == "english":
+    sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+  else:
+    sentence_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
   embeddings = sentence_model.encode(docs, show_progress_bar=False)
 
   # Train our topic model using our pre-trained sentence-transformers embeddings
@@ -19,7 +22,10 @@ def create_bertransfer(ids, docs, topic_embeddings, language = "english", bert_m
   from sentence_transformers import SentenceTransformer
   from BERTransfer import BERTransferM
 
-  sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+  if language == "english":
+    sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+  else:
+    sentence_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
   embeddings = sentence_model.encode(docs, show_progress_bar=True)
   bertransfer_model = BERTransferM(ids = ids, embeddings = embeddings, topic_embeddings = topic_embeddings, min_cosine_distance = min_cosine_distance, max_documents_topics = 15000)
   return bertransfer_model
