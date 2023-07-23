@@ -1,14 +1,17 @@
 #The function to create the BERTopic model.
 #The main difference with the official BERTopic implementation is that we return also the document embeddings that will be necessary for further calculations
-def create_bertopic(ids, docs, language = "english", calculate_probabilities=True, verbose=True, bert_model = "all-MiniLM-L6-v2", similarity_threshold = 0.01, document_selection = 20, add_meta_topics = True):
+def create_bertopic(ids, docs, language = "english", calculate_probabilities=True, verbose=True, bert_model = "all-MiniLM-L6-v2", similarity_threshold = 0.01, document_selection = 20, add_meta_topics = True, model = "standard"):
   from bertopic import BERTopic
   from sentence_transformers import SentenceTransformer
   from BERTransfer import BERTopicM
   
   if language == "english":
-    sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+    sentence_model_name = "all-MiniLM-L6-v2"
   else:
-    sentence_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+    sentence_model_name = "paraphrase-multilingual-MiniLM-L12-v2"
+  if model != "standard":
+    sentence_model_name = model
+  sentence_model = SentenceTransformer(sentence_model_name)
   embeddings = sentence_model.encode(docs, show_progress_bar=False)
 
   # Train our topic model using our pre-trained sentence-transformers embeddings
